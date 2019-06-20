@@ -16,6 +16,7 @@ export default class Settings extends Component {
           <div className="col">
             <input type="text" className="form-control" placeholder="likes per day"/>
           </div>
+        </div>
       </form>
     );
   }
