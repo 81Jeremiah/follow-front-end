@@ -16,30 +16,52 @@ export default class Settings extends Component {
           <div className="col">
             <input type="text" className="form-control" placeholder="likes per day"/>
           </div>
+          <div className="col">
+            <input type="text" className="form-control" placeholder="comments per day"/>
+          </div>
+          <div className="col">
+            <input type="text" className="form-control" placeholder="max like per tag"/>
+          </div>
+          <div className="col">
+            <input type="text" className="form-control" placeholder="follow per day"/>
+          </div>
         </div>
+        <div className="form-row">
+          <div className="col">
+            <input type="text" className="form-control" placeholder="unfollow per day"/>
+          </div>
+          <div class="col">
+            <input type="password" className="form-control" placeholder="follow time"/>
+          </div>
+          <div class="col">
+            <input type="password" className="form-control" placeholder="tag list"/>
+          </div>
+          <div class="col">
+            <input type="password" className="form-control" placeholder="unfollow prop celeb"/>
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="col">
+            <input type="text" className="form-control" placeholder="unfollow fakes"/>
+          </div>
+          <div class="col">
+            <input type="password" className="form-control" placeholder="avoid inactive"/>
+          </div>
+          <div class="col">
+            <input type="password" className="form-control" placeholder="avoid recent feed"/>
+          </div>
+          <div class="col">
+            <input type="password" className="form-control" placeholder="comment generator"/>
+          </div>
+        </div>
+
+
       </form>
     );
   }
 }
 
-    //     username
-    //     "password": "req",
-    //     "like_per_day": "opt",
-    //     "comments_per_day": "opt",
-    //     "max_like_for_one_tag": "opt",
-    //     "follow_per_day": "opt",
-    //     "follow_time": "opt",
-    //     "unfollow_per_day": "opt",
-    //     "tag_list": "opt",
-    //     "unfollow_selebgram": "opt",
-    //     "unfollow_probably_fake": "opt",
-    //     "unfollow_inactive": "opt",
-    //     "unfollow_recent_feed": "opt",
-    //
-    //
-    //
-    //     "username": "none",
-    //     "password": "none",
+    
     //     "like_per_day": 709,
     //     "comments_per_day": 31,
     //     "max_like_for_one_tag": 36,
