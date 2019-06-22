@@ -7,82 +7,88 @@ export default class Settings extends Component {
     password: "",
     likes: 709,
     comments: 31,
-    max_like_tag: 36,
-    follow_per_day: 260,
-    follow_time: 36000,
-    unfollow_per_day: 247,
-    unfollow_break_min: 3,
-    unfollow_break_max: 17,
-    avoid_celeb: true,
-    avoid_fake: true,
-    avoid_inactive: true,
-    avoid_feed: true
+    maxLikeTag: 36,
+    followPerDay: 260,
+    followTime: 36000,
+    unfollowPerDay: 247,
+    tagList: [],
+    unfollowBreakMin: 3,
+    unfollowBreakMax: 17,
+    avoidCeleb: true,
+    avoidFake: true,
+    avoidInactive: true,
+    avoidFeed: true
 
   }
 
 
 
-  onChange = event => {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   }
 
+  handleSubmit = event => {
+    event.preventDefault()
+  }
+
   render() {
     return(
-      <form>
+      <form onSubmit={this.hangleSubmit}>
         <div className="form-row">
           <div className="col">
-            <input type="text" className="form-control" placeholder="Instagram Name" name="instaname" value={this.state.instaname} onChange={this.handleChange}/>
+            <input type="text" className="form-control" placeholder="Instagram Name" name="instaname"  value={this.state.instaname} onChange={this.handleChange} />
           </div>
-          <div class="col">
+          <div className="col">
             <input type="password" className="form-control" placeholder="Instagram Password" name="password" value={this.state.password} onChange={this.handleChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="col">
-            <input type="text" className="form-control" placeholder="likes per day" name="likes" value={this.state.likes} onChange={this.handleChange}/>
+            {/* new accounts accounts 250 */}
+            <input type="number" max="1200" className="form-control" placeholder="likes per day" name="likes" value={this.state.likes} onChange={this.handleChange}/>
           </div>
           <div className="col">
-            <input type="text" className="form-control" placeholder="comments per day"/>
+            <input type="text" className="form-control" placeholder="comments per day" name="comments" value={this.state.comments} onChange={this.handleChange}/>
           </div>
           <div className="col">
-            <input type="text" className="form-control" placeholder="max like per tag"/>
+            <input type="text" className="form-control" placeholder="max like per tag" name="maxLikeTag" value={this.state.maxLikeTag} onChange={this.handleChange}/>
           </div>
           <div className="col">
-            <input type="text" className="form-control" placeholder="follow per day"/>
+            <input type="text" className="form-control" placeholder="follow per day" name="followPerDay" value={this.state.followPerDay} onChange={this.handleChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="col">
-            <input type="text" className="form-control" placeholder="unfollow per day"/>
+            <input type="text" className="form-control" placeholder="unfollow per day" name="unfollowPerDay" value={this.state.unfollowPerDay} onChange={this.handleChange}/>
           </div>
-          <div class="col">
-            <input type="password" className="form-control" placeholder="follow time"/>
+          <div className="col">
+            <input type="password" className="form-control" placeholder="follow time" name="followTime" value={this.state.followTime} onChange={this.handleChange}/>
           </div>
-          <div class="col">
-            <input type="password" className="form-control" placeholder="tag list"/>
+          <div className="col">
+            <input type="password" className="form-control" placeholder="tag list" name="tagList" value={this.state.tagList} onChange={this.handleChange}/>
           </div>
-          <div class="col">
-            <input type="password" className="form-control" placeholder="unfollow prop celeb"/>
+          <div className="col">
+            <input type="password" className="form-control" placeholder="avoid celeb" name="avoidCeleb" value={this.state.avoidCeleb} onChange={this.handleChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="col">
-            <input type="text" className="form-control" placeholder="unfollow fakes"/>
+            <input type="text" className="form-control" placeholder="avoid fakes" name="avoidFake" value={this.state.avoidFake} onChange={this.handleChange}/>
           </div>
-          <div class="col">
-            <input type="password" className="form-control" placeholder="avoid inactive"/>
+          <div className="col">
+            <input type="password" className="form-control" placeholder="avoid inactive" name="avoidInactive" value={this.state.avoidInactive} onChange={this.handleChange}/>
           </div>
-          <div class="col">
-            <input type="password" className="form-control" placeholder="avoid recent feed"/>
+          <div className="col">
+            <input type="password" className="form-control" placeholder="avoid recent feed" name="avoidFeed" value={this.state.avoidFeed} onChange={this.handleChange}/>
           </div>
-          <div class="col">
+          <div className="col">
             <input type="password" className="form-control" placeholder="comment generator"/>
           </div>
         </div>
-
+        <button type="submt">Change Settings</button>
 
       </form>
     );
