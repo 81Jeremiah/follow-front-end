@@ -1,20 +1,48 @@
 import React, {Component} from 'react'
 
 export default class Settings extends Component {
+
+  state = {
+    instaname: "",
+    password: "",
+    likes: 709,
+    comments: 31,
+    max_like_tag: 36,
+    follow_per_day: 260,
+    follow_time: 36000,
+    unfollow_per_day: 247,
+    unfollow_break_min: 3,
+    unfollow_break_max: 17,
+    avoid_celeb: true,
+    avoid_fake: true,
+    avoid_inactive: true,
+    avoid_feed: true
+
+  }
+
+
+
+  onChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  }
+
   render() {
     return(
       <form>
         <div className="form-row">
           <div className="col">
-            <input type="text" className="form-control" placeholder="Instagram Name"/>
+            <input type="text" className="form-control" placeholder="Instagram Name" name="instaname" value={this.state.instaname} onChange={this.handleChange}/>
           </div>
           <div class="col">
-            <input type="password" className="form-control" placeholder="Instagram Password"/>
+            <input type="password" className="form-control" placeholder="Instagram Password" name="password" value={this.state.password} onChange={this.handleChange}/>
           </div>
         </div>
         <div className="form-row">
           <div className="col">
-            <input type="text" className="form-control" placeholder="likes per day"/>
+            <input type="text" className="form-control" placeholder="likes per day" name="likes" value={this.state.likes} onChange={this.handleChange}/>
           </div>
           <div className="col">
             <input type="text" className="form-control" placeholder="comments per day"/>
@@ -60,20 +88,3 @@ export default class Settings extends Component {
     );
   }
 }
-
-    
-    //     "like_per_day": 709,
-    //     "comments_per_day": 31,
-    //     "max_like_for_one_tag": 36,
-    //     "follow_per_day": 260,
-    //     "follow_time": 36000,
-    //     "unfollow_per_day": 247,
-    //     "unfollow_break_min": 3,
-    //     "unfollow_break_max": 17,
-    //     "log_mod": 0,
-    //     "proxy": "",
-    //     "unfollow_selebgram": "False",
-    //     "unfollow_probably_fake": "True",
-    //     "unfollow_inactive": "True",
-    //     "unfollow_recent_feed": "False",
-    // }
