@@ -4,7 +4,7 @@ import Account from '../containers/Account';
 import Settings from '../components/Settings';
 import Login from '../Login';
 import Signup from '../components/Signup'
-
+import Splash from '../components/Splash'
 const Routes = props => {
 
   return (
@@ -14,6 +14,7 @@ const Routes = props => {
         <Route exact path="/settings" component={ Settings }/>
         <Route exact path="/login" component={ Login }/>
         <Route exact path="/signup" component={ Signup }/>
+        <Route exact path="/" component={ Splash }/>
       </Switch>
     </Router>
   )
