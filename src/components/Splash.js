@@ -3,8 +3,10 @@ import React from 'react';
 const Splash = () =>{
 
   return(
-    // <!-- Navigation -->
-<div>
+    // Navigation
+    <React.Fragment>
+<img src="../img/bg-pattern.png" className="img-fluid" alt=""/>
+<div clasName="wrapper">
   <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div className="container">
       <a className="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
@@ -186,6 +188,8 @@ const Splash = () =>{
   </div>
   </footer>
 </div>
+</React.Fragment>
+
 );
 }
 
