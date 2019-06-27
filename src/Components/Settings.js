@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import bgpattern from '../img/bg-pattern.png';
+
 
 export default class Settings extends Component {
 
