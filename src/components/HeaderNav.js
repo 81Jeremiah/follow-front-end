@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { Link } from 'react-dom'
 import demoScreen from '../img/demo-screen-1.jpg';
 
-const Header = () => {
+class HeaderNav extends Component {
+
+// const Header = () => {
+render() {
   return(
       <>
       <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -57,6 +60,6 @@ const Header = () => {
       </header>
     </>
   )
-}
-
-export default Header
+ }
+};
+export default HeaderNav
