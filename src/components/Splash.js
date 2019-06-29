@@ -3,11 +3,12 @@ import demoScreen from '../img/demo-screen-1.jpg';
 import appBadge from '../img/app-store-badge.svg';
 import googleBadge from '../img/google-play-badge.svg'
 import { Link } from 'react-router-dom';
-import HeaderNav from './Header'
+import HeaderNav from './HeaderNav'
+import Footer from './Footer'
 const Splash = () =>{
 
   return(
-    <>
+
 
 <div>
 <HeaderNav />
@@ -124,25 +125,10 @@ const Splash = () =>{
     </ul>
   </div>
 </section>
+<Footer />
 
-<footer>
-  <div className="container">
-    <p>&copy; Your Website 2019. All Rights Reserved.</p>
-    <ul className="list-inline">
-      <li className="list-inline-item">
-        <a href="#page-top">Privacy</a>
-      </li>
-      <li className="list-inline-item">
-        <a href="#page-top">Terms</a>
-      </li>
-      <li className="list-inline-item">
-        <a href="#page-top">FAQ</a>
-      </li>
-    </ul>
-  </div>
-  </footer>
 </div>
-</>
+
 
 );
 }
