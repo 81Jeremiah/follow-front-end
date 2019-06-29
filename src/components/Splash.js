@@ -3,15 +3,16 @@ import demoScreen from '../img/demo-screen-1.jpg';
 import appBadge from '../img/app-store-badge.svg';
 import googleBadge from '../img/google-play-badge.svg'
 import { Link } from 'react-router-dom';
-import Header from './Header'
+import HeaderNav from './Header'
 const Splash = () =>{
 
   return(
     <>
 
-
-<Header />
+<div>
+<HeaderNav />
 <section className="download bg-primary text-center" id="download">
+
   <div className="container">
     <div className="row">
       <div className="col-md-8 mx-auto">
@@ -140,8 +141,9 @@ const Splash = () =>{
     </ul>
   </div>
   </footer>
-
+</div>
 </>
+
 );
 }
 
