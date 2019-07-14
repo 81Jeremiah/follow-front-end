@@ -23,19 +23,21 @@ export const login = (credentials) =>{
 
   return dispatch => {
     dispatch(authRequest())
+
     return fetch(URL + 'rest-auth/login/', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({auth: credentials})
+      // body: JSON.stringify({auth: credentials})
+      body: credentials
     })
       .then(res => res.json())
       .then((response) => {
         const token = response.key;
         localStorage.setItem('token', token);
 
-        return getUser(credentials)
+        return getUser(credentials.username)
       })
       .then((user) =>{
         dispatch(authSuccess(user, localStorage.token))
@@ -49,14 +51,14 @@ export const login = (credentials) =>{
    }
 }
 
-export const getUser = (credentials) => {
-  const request = new Request(`/api/find_user`, {
-    method: "POST",
-    headers: new Headers({
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${localStorage.token}`,
-    }),
-    body: JSON.stringify(credentials)
+export const getUser = (username) => {
+  fetch(URL+'users/q?username='+ username), {
+
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    // body: JSON.stringify(username)
   })
   return fetch(request)
     .then(response => response.json())
