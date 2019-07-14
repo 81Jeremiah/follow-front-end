@@ -6,12 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-// import rootReducer from './reducers/index.js';
+import rootReducer from './reducers/index.js';
 
 
 //adding redux store with root reucer
 const store = createStore(
-  // rootReducer,
+  rootReducer,
   compose(
     applyMiddleware(thunk),
     //Redux dev tools
