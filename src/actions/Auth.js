@@ -24,9 +24,9 @@ export const login = (credentials) =>{
   return dispatch => {
     dispatch(authRequest())
     // debugger
-    let form = new FormData()
-    form.append("username", credentials.username)
-    form.append('password', credentials.password)
+    // let form = new FormData()
+    // form.append("username", credentials.username)
+    // form.append('password', credentials.password)
     return fetch(URL + 'rest-auth/login/', {
 
       method: "POST",
@@ -35,19 +35,26 @@ export const login = (credentials) =>{
         // "Accept": "application/json",
         "Content-Type": "application/json"
       },
-      body: form
-      // body: JSON.stringify(credentials)
+      // body: {
+      //   "username": credentials.username,
+      //   "password" : credentials.password
+      // }
+      // body: form
+      body: JSON.stringify(credentials)
       // body: credentials
     })
-      .then(res=> console.log(res))
-      // .then(res => res.json())
+      // .then(res=> console.log(res.json()))
+      .then(res => res.json())
 
       .then((response) => {
+        // debugger
         const token = response.key;
         localStorage.setItem('token', token);
 
         return getUser(credentials.username)
+
       })
+
       .then((user) =>{
         dispatch(authSuccess(user, localStorage.token))
       })
@@ -61,13 +68,14 @@ export const login = (credentials) =>{
 }
 
 export const getUser = (username) => {
+  // debugger
   fetch(URL+'users/q?username='+ username, {
 
     method: "GET",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(username)
+    // body: JSON.stringify(username)
   })
   // return fetch(request)
     .then(response => response.json())
