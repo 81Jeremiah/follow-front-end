@@ -7,7 +7,7 @@ class Login extends Component {
   constructor(props) {
   super(props);
     this.state = {
-      email: '',
+      username: '',
       password: '',
     };
   }
@@ -28,7 +28,7 @@ handleChange = (event) => {
   handleSubmit = event => {
     event.preventDefault()
     // const  user = new FormData();
-    // user.append('[user]email', this.state.email)
+    // user.append('[user]username', this.state.username)
     // user.append('[user]password', this.state.password)
     // console.log(user)
     this.props.login(this.state)
@@ -43,11 +43,11 @@ render() {
 
       {/* <label htmlFor="inputEmail" className="sr-only">Email address</label> */}
 
-       <input type="email" id="inputEmail"
+       <input type="text" id="inputUsername"
                 className="form-control"
-                placeholder="Email address"
-                name="email"
-                value={this.state.email}
+                placeholder="Username"
+                name="username"
+                value={this.state.username}
                 onChange={this.handleChange}
                 required autoFocus />
 

@@ -23,16 +23,25 @@ export const login = (credentials) =>{
 
   return dispatch => {
     dispatch(authRequest())
-
+    // debugger
+    let form = new FormData()
+    form.append("username", credentials.username)
+    form.append('password', credentials.password)
     return fetch(URL + 'rest-auth/login/', {
+
       method: "POST",
+
       headers: {
+        // "Accept": "application/json",
         "Content-Type": "application/json"
       },
-      // body: JSON.stringify({auth: credentials})
-      body: credentials
+      body: form
+      // body: JSON.stringify(credentials)
+      // body: credentials
     })
-      .then(res => res.json())
+      .then(res=> console.log(res))
+      // .then(res => res.json())
+
       .then((response) => {
         const token = response.key;
         localStorage.setItem('token', token);
@@ -52,15 +61,15 @@ export const login = (credentials) =>{
 }
 
 export const getUser = (username) => {
-  fetch(URL+'users/q?username='+ username), {
+  fetch(URL+'users/q?username='+ username, {
 
     method: "GET",
     headers: {
       "Content-Type": "application/json"
     },
-    // body: JSON.stringify(username)
+    body: JSON.stringify(username)
   })
-  return fetch(request)
+  // return fetch(request)
     .then(response => response.json())
     .then(userJson => {return userJson})
 
