@@ -52,10 +52,10 @@ export const login = (credentials) =>{
         localStorage.setItem('token', token);
 
         return getUser(credentials.username)
-
       })
 
       .then((user) =>{
+        console.log(user)
         dispatch(authSuccess(user, localStorage.token))
       })
       .catch((errors) => {
@@ -69,7 +69,8 @@ export const login = (credentials) =>{
 
 export const getUser = (username) => {
   // debugger
-  fetch(URL+'users/q?username='+ username, {
+
+  return fetch(URL+'users/q?username='+ username, {
 
     method: "GET",
     headers: {
@@ -79,7 +80,10 @@ export const getUser = (username) => {
   })
   // return fetch(request)
     .then(response => response.json())
-    .then(userJson => {return userJson})
+
+    // .then(response => response.json())
+    // .then(userJson => {console.log( userJson[0])})
+    .then(userJson => {return userJson[0]})
 
     .catch(error => {
       return false;
