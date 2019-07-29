@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import { instaSettings } from '../actions/Settings'
 
-
-export default class Settings extends Component {
+ class Settings extends Component {
 
   state = {
     instaname: "",
@@ -33,6 +34,8 @@ export default class Settings extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    const settings = this.state
+    this.props.instaSettings(settings)
   }
 
   render() {
@@ -68,13 +71,13 @@ export default class Settings extends Component {
             <input type="text" className="form-control" placeholder="unfollow per day" name="unfollowPerDay" value={this.state.unfollowPerDay} onChange={this.handleChange}/>
           </div>
           <div className="col">
-            <input type="password" className="form-control" placeholder="follow time" name="followTime" value={this.state.followTime} onChange={this.handleChange}/>
+            <input type="text" className="form-control" placeholder="follow time" name="followTime" value={this.state.followTime} onChange={this.handleChange}/>
           </div>
           <div className="col">
-            <input type="password" className="form-control" placeholder="tag list" name="tagList" value={this.state.tagList} onChange={this.handleChange}/>
+            <input type="text" className="form-control" placeholder="tag list" name="tagList" value={this.state.tagList} onChange={this.handleChange}/>
           </div>
           <div className="col">
-            <input type="password" className="form-control" placeholder="avoid celeb" name="avoidCeleb" value={this.state.avoidCeleb} onChange={this.handleChange}/>
+            <input type="text" className="form-control" placeholder="avoid celeb" name="avoidCeleb" value={this.state.avoidCeleb} onChange={this.handleChange}/>
           </div>
         </div>
         <div className="form-row">
@@ -82,18 +85,21 @@ export default class Settings extends Component {
             <input type="text" className="form-control" placeholder="avoid fakes" name="avoidFake" value={this.state.avoidFake} onChange={this.handleChange}/>
           </div>
           <div className="col">
-            <input type="password" className="form-control" placeholder="avoid inactive" name="avoidInactive" value={this.state.avoidInactive} onChange={this.handleChange}/>
+            <input type="text" className="form-control" placeholder="avoid inactive" name="avoidInactive" value={this.state.avoidInactive} onChange={this.handleChange}/>
           </div>
           <div className="col">
-            <input type="password" className="form-control" placeholder="avoid recent feed" name="avoidFeed" value={this.state.avoidFeed} onChange={this.handleChange}/>
+            <input type="text" className="form-control" placeholder="avoid recent feed" name="avoidFeed" value={this.state.avoidFeed} onChange={this.handleChange}/>
           </div>
           <div className="col">
-            <input type="password" className="form-control" placeholder="comment generator"/>
+            <input type="text" className="form-control" placeholder="comment generator"/>
           </div>
         </div>
         <button type="submt">Change Settings</button>
 
       </form>
     );
+
   }
 }
+
+export default connect( null, { instaSettings })(Settings)
