@@ -7,7 +7,7 @@ const sendSettings = () => {
 export const instaSettings = (input) => {
   return dispatch => {
   dispatch(sendSettings);
-  return fetch(URL+ 'insta_follower', {
+  return fetch(URL+ 'insta_follower/follower_settings/add/', {
     method: "POST",
     headers: {
     "Accept": "application/json",
